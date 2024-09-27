@@ -17,10 +17,11 @@ Google Maps has always been my go-to app for discovering new places. However, it
 ## User Stories
 
 - As a user, I want to be able to browse for locations by category.
-- As a user, I want to be able to add a location to my list.
-- As a user, I want to be able to remove a location from my list.
-- As a user, I want to be able to view all the locations I’ve added to my list.
+- As a user, I want to be able to add a location to my favorites.
+- As a user, I want to be able to remove a location from my favorites.
+- As a user, I want to be able to view all the locations I’ve added to my favorites.
 - As a user, I want to be able to create a multiple lists.
-- As a user, I want my saved listings to be loaded from a file and continue from where I left off when I reopen the application.
-- As a user, I want to be able to rate a location.
+- As a user, I want my saved lists to be loaded from a file and continue from where I left off when I reopen the application.
+- As a user, I want to be able to rate a location that I've been to.
+- As a user, I want to be able to set a location as visited before.
  
