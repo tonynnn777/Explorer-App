@@ -1,5 +1,5 @@
 # My Personal Project
-## WanderMap BC
+## City Explorer
 
 **What will the application do?**
 
