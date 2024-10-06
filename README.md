@@ -1,10 +1,10 @@
 # My Personal Project
-## City Explorer
+## World Explorer
 
 **What will the application do?**
 
 
-The application will serve as a *guide* for discovering fun and interesting places to visit in the Lower Mainland, BC. Users can browse through various categories of attractions such as parks, cafes, museums, and outdoor activities. The app will also enable users to plan their trips by creating personalized  lists, where they can add or remove destinations based on their preferences.
+The application will serve as a *guide* for discovering fun and interesting places to visit around the world. Users can browse through various categories of attractions such as parks, cafes, museums, and outdoor activities. The app will also enable users to plan their trips by creating personalized  lists, where they can add or remove destinations based on their preferences.
 
 **Who will use it?**
 
@@ -21,7 +21,6 @@ Google Maps has always been my go-to app for discovering new places. However, it
 - As a user, I want to be able to remove a location from my favorites.
 - As a user, I want to be able to view all the locations I’ve added to my favorites.
 - As a user, I want to be able to create a multiple lists.
-- As a user, I want my saved lists to be loaded from a file and continue from where I left off when I reopen the application.
 - As a user, I want to be able to rate a location that I've been to.
 - As a user, I want to be able to set a location as visited before.
  
