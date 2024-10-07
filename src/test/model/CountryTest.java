@@ -7,13 +7,14 @@ import org.junit.jupiter.api.Test;
 
 public class CountryTest {
     private Country testCountry;
+
     @BeforeEach
-    void setUp(){
+    void setUp() {
         testCountry = new Country("USA");
     }
 
     @Test
-    void testConstructor(){
+    void testConstructor() {
         assertEquals("USA", testCountry.getName());
     }
 }
