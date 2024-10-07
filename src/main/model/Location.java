@@ -33,6 +33,12 @@ public class Location {
     public int getRating() {
         return rating;
     }
+
+    //EFFECTS: returns location's name and rating as readable strings
+
+    public String toString() {
+        return name + " (Rating: " + rating + ")";
+    }
     
     //REQUIRES: newRating must be from 0 to 5
     //MODIFIES: this

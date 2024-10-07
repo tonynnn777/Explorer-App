@@ -5,6 +5,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import java.util.HashSet;
+
 
 public class FavoritesTest {
     private Favorites favoriteList;
@@ -22,14 +24,14 @@ public class FavoritesTest {
 
     @Test
     void testConstructor() {
-        assertEquals(0, favoriteList.getFavorites().size());
+        assertEquals(0, favoriteList.getSize());
     }
 
     @Test
     void testAddOneLocation() {
         favoriteList.addLocation(location1);
         assertTrue(favoriteList.contains(location1));
-        assertEquals(1, favoriteList.getFavorites().size());
+        assertEquals(1, favoriteList.getSize());
 
     }
 
@@ -39,7 +41,7 @@ public class FavoritesTest {
         favoriteList.addLocation(location2);
         assertTrue(favoriteList.contains(location1));
         assertTrue(favoriteList.contains(location2));
-        assertEquals(2, favoriteList.getFavorites().size());
+        assertEquals(2, favoriteList.getSize());
     }
 
     @Test
@@ -49,7 +51,7 @@ public class FavoritesTest {
         favoriteList.removeLocation(location1);
         assertFalse(favoriteList.contains(location1));
         assertTrue(favoriteList.contains(location2));
-        assertEquals(1, favoriteList.getFavorites().size());
+        assertEquals(1, favoriteList.getSize());
     }
 
     @Test
@@ -60,7 +62,7 @@ public class FavoritesTest {
         favoriteList.removeLocation(location2);
         assertFalse(favoriteList.contains(location1));
         assertFalse(favoriteList.contains(location2));
-        assertEquals(0, favoriteList.getFavorites().size());
+        assertEquals(0, favoriteList.getSize());
     }
 
     @Test
@@ -68,23 +70,33 @@ public class FavoritesTest {
         favoriteList.addLocation(location1);
         favoriteList.removeLocation(location2);
         assertTrue(favoriteList.contains(location1));
-        assertEquals(1, favoriteList.getFavorites().size());
+        assertEquals(1, favoriteList.getSize());
     }
 
     @Test
     void testAddDuplicateLocation() {
         favoriteList.addLocation(location1);
         favoriteList.addLocation(location1);
-        assertEquals(1, favoriteList.getFavorites().size());
+        assertEquals(1, favoriteList.getSize());
     }
 
     @Test
     void testGetLocationByName() {
         favoriteList.addLocation(location1);
         favoriteList.addLocation(location2);
-        assertEquals(location1, favoriteList.getFavoriteByName("Hawaii"));
-        assertEquals(null, favoriteList.getFavoriteByName("Washington DC"));
+        assertEquals(location1, favoriteList.getLocationByName("Hawaii"));
+        assertEquals(null, favoriteList.getLocationByName("Washington DC"));
 
+
+    }
+
+    @Test
+    void testGetFavorites() {
+        favoriteList.addLocation(location1);
+        favoriteList.addLocation(location2);
+        HashSet<Location> testFavovites = favoriteList.getFavorites();
+        assertEquals(2, testFavovites.size());
+        assertTrue(testFavovites.contains(location1));
 
     }
 

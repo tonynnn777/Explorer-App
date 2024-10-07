@@ -37,13 +37,18 @@ public class Favorites {
 
     //EFFECTS: returns the location if given name matches
 
-    public Location getFavoriteByName(String n) {
+    public Location getLocationByName(String n) {
         for (Location l : favoriteLocations) {
             if (l.getName().equals(n)) {
                 return l;
             }
         }
         return null;
+    }
+    
+    //EFFECTS: get size of the favorite list
+    public int getSize() {
+        return favoriteLocations.size();
     }
 
     //REQUIRES: loc is not null
