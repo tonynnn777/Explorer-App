@@ -18,7 +18,8 @@ Google Maps has always been my go-to app for discovering new places. However, it
 
 - As a user, I want to be able to browse for locations by category.
 - As a user, I want to be able to add a location to my favorites.
-- As a user, I want to be able to remove a location from my favorites.
 - As a user, I want to be able to view all the locations I’ve added to my favorites.
 - As a user, I want to be able to create a multiple lists.
+- As a user, I want to be able to view multiple lists.
+- As a user, I want to be able to remove a location from my favorites.
 - As a user, I want to be able to rate a location that I've been to. 
