@@ -1,6 +1,6 @@
 package model;
 
-// This class represents a country in the system
+// This class represents a country in the system that has a name
 public class Country {
     private String name;
 

@@ -9,7 +9,6 @@ public class Location {
     //REQUIRES: name is not empty or null &&
     //          0 <= rating <= 5
     //EFFECTS: Construct a location with name, country, and a number rating
-
     public Location(String name, Country c, int rating) {
         this.name = name;
         this.country = c;
@@ -17,25 +16,21 @@ public class Location {
     }
 
     //EFFECTS: returns location's name
-
     public String getName() {
         return name;
     }
 
     //EFFECTS: returns location's country of origin
-
     public Country getCountry() {
         return country; 
     }
     
     //EFFECTS: returns location's rating
-
     public int getRating() {
         return rating;
     }
 
     //EFFECTS: returns location's name and rating as readable strings
-
     public String toString() {
         return name + " (Rating: " + rating + ")";
     }
@@ -43,7 +38,6 @@ public class Location {
     //REQUIRES: newRating must be from 0 to 5
     //MODIFIES: this
     //EFFECTS: sets the new rating of location to newRating
-
     public void setRating(int newRating) {
         rating = newRating;
     }
