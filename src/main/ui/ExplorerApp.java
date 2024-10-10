@@ -52,9 +52,9 @@ public class ExplorerApp {
         System.out.println("\nGoodbye!");
     }
 
-    //REQUIRES: command to be non empty or null
     //MODIFIES: this
     //EFFECTS: processes user command according to input
+    //         if command is null or invalid print invalid command
     private void processCommand(String command) {
         if (command.equals("b")) {
             browseLocations();
@@ -128,6 +128,8 @@ public class ExplorerApp {
 
     //MODIFIES: this
     //EFFECTS: Lets the user browse locations by countries
+    //         takes user input and show locations in that country
+    //         prints invalid selection if input is not a number 1-5
     private void browseLocations() {
         printCountries();
         String command = input.next();
@@ -151,7 +153,8 @@ public class ExplorerApp {
                 System.out.println("Invalid selection. Returning to menu...");
         }
     }
-
+    
+    //REQUIRES: c is not null
     //EFFECTS: shows location by selected country,
     //         and prompts the user to add to their favorite list
     private void showLocationByCountry(Country c) {
@@ -175,9 +178,9 @@ public class ExplorerApp {
         }
     }
 
-    //REQUIRES: locName not empty or null
     //MODIFIES: this
-    //EFFECTS: add a location to active favorite list if name matches location,
+    //EFFECTS: checks if there is an active favorite list or no lists created,
+    //         add a location to active favorite list if name matches locName,
     //         tells the user location not found if no match.
     private void addLocationToFavorites(String locName) {
         // Check if there is an active favorite list or no lists created
@@ -199,6 +202,7 @@ public class ExplorerApp {
         System.out.println("Location " + locName + " not found in the available locations.");
     }
 
+    //REQUIRES: map not empty, f is not null
     //EFFECTS: returns corresponding title of a favorite list by searching through the hashmap
     //         returns null if no match
     private String getLocationNameByLocation(HashMap<String, Favorites> map, Favorites f) {
@@ -240,7 +244,7 @@ public class ExplorerApp {
     // EFFECTS: if there exists a favorite list,
     //          displays the names of all the favorite lists to the user,
     //          allows the user to select one to view by name, shows the locations in the active list,
-    //          give user option to remove a location and rate a location
+    //          gives user option to remove a location and rate a location
     private void viewFavoriteLists() {
         if (favoriteLists.isEmpty()) {
             System.out.println("No lists to view.");
@@ -253,8 +257,8 @@ public class ExplorerApp {
         }
         System.out.println("Select a list to view: ");
         String selectedListName = input.next();
-        
         Favorites selectedList = favoriteLists.get(selectedListName);
+        
         if (selectedList != null) {
             activeFavoriteList = selectedList;
             System.out.println(getLocationNameByLocation(favoriteLists, activeFavoriteList)
@@ -287,6 +291,7 @@ public class ExplorerApp {
 
     //MODIFIES: this, Favorites
     //EFFECTS: remove a location from an active favorite list
+    //         if location is null, print not found in list
     private void removeLocationFromFavorites(Location loc) {
         if (loc == null) {
             System.out.println("Location not found in your favorite list.");
@@ -297,7 +302,9 @@ public class ExplorerApp {
     }
 
     //MODIFIES: this, Location, Favorites
-    //EFFECTS: let user change the rating of a location in their favorite list
+    //EFFECTS: let user change the rating of a location in their active favorite list
+    //         by prompting and let user input a location in their active list
+    //         doesn't run if active favorite list is empty
     private void rateLocationPrompt() {
         if (activeFavoriteList.getSize() == 0) {
             return;
@@ -316,7 +323,9 @@ public class ExplorerApp {
     }
 
     //MODIFIES: this, Location, Favorites
-    //EFFECTS: changes the actual rating of a location from favorite list
+    //EFFECTS: if location is not null,
+    //         changes the actual rating of a location from favorite list
+    //         from 0 to 5 inclusive
     private void rateLocationFromFavorites(Location loc) {
         if (loc != null) {
             int oldRating = loc.getRating();
@@ -324,7 +333,8 @@ public class ExplorerApp {
             int newRating = input.nextInt();
             if (newRating >= 0 && newRating <= 5) {
                 loc.setRating(newRating);
-                System.out.println("The rating of " + loc.getName() + " has been changed from " + oldRating + " to " + loc.getRating());
+                System.out.println("The rating of " + loc.getName() + " has been changed from " 
+                                    + oldRating + " to " + loc.getRating());
             } else {
                 System.out.println("Invalid rating.");
             }
