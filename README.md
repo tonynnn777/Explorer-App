@@ -25,3 +25,7 @@ Google Maps has always been my go-to app for discovering new places. However, it
 - As a user, I want to be able to rate a location that I've been to. 
 
 END OF PHASE 1
+
+**PHASE 2:**
+- As a user, I want to have the reminder to save my favorite locations list or not when exiting the application menu.
+- As a user, I want to be able to reload my save favorite locations list as an option in the application menu.
