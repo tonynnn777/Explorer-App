@@ -41,7 +41,7 @@ public class JsonReaderTest {
 
     @Test
     void testReaderGeneralFavoriteListsMap() {
-        JsonReader reader = new JsonReader("./data/testReaderGeneralWorkRoom.json");
+        JsonReader reader = new JsonReader("./data/testReaderGeneralFavMap.json");
         try {
             HashMap<String, Favorites> favMap = reader.read();
             assertEquals(2, favMap.size());
@@ -66,7 +66,7 @@ public class JsonReaderTest {
             assertEquals("USA", losAngeles.getCountry().getName());
             assertEquals(3, losAngeles.getRating());
         } catch (IOException e) {
-
+            fail("Couldn't read from file");
         }
     }
 }
