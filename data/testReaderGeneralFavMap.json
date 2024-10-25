@@ -1,0 +1,26 @@
+{
+    "Test Fav List One": [
+        {
+            "name": "Toronto",
+            "country": "Canada",
+            "rating": 4
+        },
+        {
+            "name": "Banff",
+            "country": "Canada",
+            "rating": 5
+        }
+    ],
+    "Test Fav List Two": [
+        {
+            "name": "New York",
+            "country": "USA",
+            "rating": 5
+        },
+        {
+            "name": "Los Angeles",
+            "country": "USA",
+            "rating": 3
+        }
+    ]
+}
