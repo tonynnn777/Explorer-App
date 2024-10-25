@@ -62,16 +62,13 @@ public class JsonWriterTest {
             writer.write(favoriteListsMap);
             writer.close();
 
-            // JsonReader reader = new JsonReader("./data/testWriterGeneralFavMap.json");
-            // HashMap<String, Favorites> readFavoriteLists = reader.read();
-            // assertEquals(1, readFavoriteLists.size());
-            // assertTrue(readFavoriteLists.containsKey("Test Fav List One"));
+            JsonReader reader = new JsonReader("./data/testWriterGeneralFavMap.json");
+            HashMap<String, Favorites> readFavoriteLists = reader.read();
+            assertEquals(1, readFavoriteLists.size());
+            assertTrue(readFavoriteLists.containsKey("Test Fav List One"));
 
-            // Favorites readFavorites = readFavoriteLists.get("Test Fav List One");
-            // assertEquals(2, readFavorites.getFavorites().size());
-            // // Additional checks to verify the contents of the favorites
-            // assertTrue(readFavorites.getFavorites().contains(new Location("Banff", country, 5)));
-            // assertTrue(readFavorites.getFavorites().contains(new Location("Toronto", country, 4)));
+            Favorites readFavorites = readFavoriteLists.get("Test Fav List One");
+            assertEquals(2, readFavorites.getFavorites().size());
         } catch (IOException e) {
             fail("Exception should not have been thrown");
         }
