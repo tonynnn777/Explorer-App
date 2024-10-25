@@ -2,6 +2,9 @@ package model;
 
 import java.util.HashSet;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 // Represents a collection of favorite locations
 public class Favorites {
     private HashSet<Location> favoriteLocations;
@@ -58,4 +61,14 @@ public class Favorites {
         return false;
     }
 
+    // EFFECTS: returns locations in this favorite list as a JSON array
+    private JSONArray favoriteSToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (Location loc : this.getFavorites()) {
+            jsonArray.put(loc.locationToJson(loc));
+        }
+
+        return jsonArray;
+    }
 }

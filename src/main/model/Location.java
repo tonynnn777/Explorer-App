@@ -1,5 +1,7 @@
 package model;
 
+import org.json.JSONObject;
+
 // This class represents a location with a name, country of origin, and a rating
 public class Location {
     private String name;
@@ -40,5 +42,14 @@ public class Location {
     //EFFECTS: sets the new rating of location to newRating
     public void setRating(int newRating) {
         rating = newRating;
+    }
+
+    //EFFECTS: returns location as a JSON object
+    public JSONObject locationToJson(Location loc) {
+        JSONObject json = new JSONObject();
+        json.put("name", loc.getName());
+        json.put("country", loc.getCountry().getName());
+        json.put("rating", loc.getRating());
+        return json;
     }
 }
