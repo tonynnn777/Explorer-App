@@ -62,7 +62,7 @@ public class Favorites {
     }
 
     // EFFECTS: returns locations in this favorite list as a JSON array
-    private JSONArray favoriteSToJson() {
+    public JSONArray favoritesToJson() {
         JSONArray jsonArray = new JSONArray();
 
         for (Location loc : this.getFavorites()) {
