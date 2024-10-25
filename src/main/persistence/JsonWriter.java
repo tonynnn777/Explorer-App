@@ -27,16 +27,16 @@ public class JsonWriter {
     }
 
     // MODIFIES: this
-    // EFFECTS: writes JSON representation of workroom to file
-    public void write(HashMap<String, Favorites> favoriteLists) {
+    // EFFECTS: writes JSON representation of favorite lists map to file
+    public void write(HashMap<String, Favorites> favoriteListsMap) {
     }
 
     // EFFECTS: converts favorite lists to JSON object representation
-    private JSONObject favoriteListsToJson(HashMap<String, Favorites> favoriteLists) {
+    private JSONObject favoriteListsToJson(HashMap<String, Favorites> favoriteListsMap) {
         JSONObject json = new JSONObject();
         return json;
     }
-    
+
     // MODIFIES: this
     // EFFECTS: closes writer
     public void close() {

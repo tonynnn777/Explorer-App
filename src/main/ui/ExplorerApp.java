@@ -12,7 +12,7 @@ import model.Location;
 
 // World Explorer Application
 public class ExplorerApp {
-    private HashMap<String, Favorites> favoriteLists;
+    private HashMap<String, Favorites> favoriteListsMap;
     private HashMap<Country, List<Location>> locationsByCountry;
     private Favorites activeFavoriteList;
     private Scanner input;
@@ -70,7 +70,7 @@ public class ExplorerApp {
     //MODIFIES: this, Favorites, Location
     //EFFECTS: initiallizes lists and locations
     private void init() {
-        favoriteLists = new HashMap<>();
+        favoriteListsMap = new HashMap<>();
         locationsByCountry = new HashMap<>();
         activeFavoriteList = new Favorites();
 
@@ -184,7 +184,7 @@ public class ExplorerApp {
     //         tells the user location not found if no match.
     private void addLocationToFavorites(String locName) {
         // Check if there is an active favorite list or no lists created
-        if (activeFavoriteList == null || favoriteLists.isEmpty()) {
+        if (activeFavoriteList == null || favoriteListsMap.isEmpty()) {
             System.out.println("You have not created any favorite lists yet. Please create one!");
             return;
         }
@@ -193,7 +193,7 @@ public class ExplorerApp {
                 if ((l.getName().equals(locName))) {
                     activeFavoriteList.addLocation(l);
                     System.out.println(locName + " has been added to your list called " 
-                                    + getLocationNameByLocation(favoriteLists, activeFavoriteList)
+                                    + getLocationNameByLocation(favoriteListsMap, activeFavoriteList)
                                     + " ! ! !");
                     return;
                 }
@@ -235,7 +235,7 @@ public class ExplorerApp {
         System.out.println("Enter the name of the new favorite list: ");
         String listName = input.next();
         Favorites newFavorites = new Favorites();
-        favoriteLists.put(listName, newFavorites);
+        favoriteListsMap.put(listName, newFavorites);
         activeFavoriteList = newFavorites;
         System.out.println("Favorite list " + listName + " is created!");
     }
@@ -246,22 +246,22 @@ public class ExplorerApp {
     //          allows the user to select one to view by name, shows the locations in the active list,
     //          gives user option to remove a location and rate a location
     private void viewFavoriteLists() {
-        if (favoriteLists.isEmpty()) {
+        if (favoriteListsMap.isEmpty()) {
             System.out.println("No lists to view.");
             return;
         }
 
         System.out.println("Favorite Lists: ");
-        for (String listName : favoriteLists.keySet()) {
+        for (String listName : favoriteListsMap.keySet()) {
             System.out.println("\t " + listName);
         }
         System.out.println("Select a list to view: ");
         String selectedListName = input.next();
-        Favorites selectedList = favoriteLists.get(selectedListName);
+        Favorites selectedList = favoriteListsMap.get(selectedListName);
         
         if (selectedList != null) {
             activeFavoriteList = selectedList;
-            System.out.println(getLocationNameByLocation(favoriteLists, activeFavoriteList)
+            System.out.println(getLocationNameByLocation(favoriteListsMap, activeFavoriteList)
                                                          + " is the current active list.");
             System.out.println("Locations in this favorite list: " + selectedList.getFavorites().toString());
         } else {
