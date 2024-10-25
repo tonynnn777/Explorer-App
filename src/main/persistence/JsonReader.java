@@ -1,3 +1,6 @@
+// Referenced from the JsonSerialization Demo
+// https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
+
 package persistence;
 
 import java.util.HashMap;
@@ -14,10 +17,7 @@ import model.Country;
 import model.Favorites;
 import model.Location;
 
-// Referenced from the JsonSerialization Demo
-// https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
-
-// represents a reader that reads Favorites from JSON data stored in file 
+// represents a reader that reads Favorites Lists from JSON data stored in file 
 public class JsonReader {
     private String source;
 

@@ -1,3 +1,6 @@
+// Referenced from the JsonSerialization Demo
+// https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
+
 package persistence;
 
 import java.io.*;
@@ -6,10 +9,8 @@ import java.util.Map;
 import org.json.JSONObject;
 import model.Favorites;
 
-// Referenced from the JsonSerialization Demo
-// https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
 
-// Represents a writer that writes JSON representation of Favorites list to file
+// Represents a writer that writes JSON representation of Favorites lists to file
 public class JsonWriter {
     private static final int TAB = 4;
     private PrintWriter writer;

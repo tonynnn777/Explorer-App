@@ -1,5 +1,11 @@
+// reference from TellerApp and JsonSerialization Demo
+// https://github.students.cs.ubc.ca/CPSC210/TellerApp.git
+// https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
+
 package ui;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -9,6 +15,9 @@ import java.util.Scanner;
 import model.Country;
 import model.Favorites;
 import model.Location;
+import persistence.JsonReader;
+import persistence.JsonWriter;
+
 
 // World Explorer Application
 public class ExplorerApp {
@@ -16,6 +25,10 @@ public class ExplorerApp {
     private HashMap<Country, List<Location>> locationsByCountry;
     private Favorites activeFavoriteList;
     private Scanner input;
+    private static final String JSON_STORE = "./data/favMap.json";
+    private JsonWriter jsonWriter;
+    private JsonReader jsonReader;
+
 
     private static final Country COUNTRY_USA = new Country("USA");
     private static final Country COUNTRY_CANADA = new Country("Canada");
@@ -27,6 +40,8 @@ public class ExplorerApp {
     //EFFECTS: runs the Explorer App
     public ExplorerApp() {
         System.out.println("Welcome to the World Explorer App, an app to to help plan your next summer vacation!");
+        jsonWriter = new JsonWriter(JSON_STORE);
+        jsonReader = new JsonReader(JSON_STORE);
         runExplorer();
     }
 
@@ -62,6 +77,10 @@ public class ExplorerApp {
             createFavoriteList();
         } else if (command.equals("v")) {
             viewFavoriteLists();
+        } else if (command.equals("s")) {
+            saveFavMap();
+        } else if (command.equals("l")) {
+            loadFavMap();
         } else {
             System.out.println("Invalid command...");
         }
@@ -113,6 +132,8 @@ public class ExplorerApp {
         System.out.println("\tb -> browse locations");
         System.out.println("\tc -> create a new favorite list");
         System.out.println("\tv -> view favorite lists");
+        System.out.println("\ts -> save all favorite lists");
+        System.out.println("\tl -> load all favorite lists");
         System.out.println("\tq -> quit");
     }
 
@@ -342,4 +363,27 @@ public class ExplorerApp {
             System.out.println("No such Location found.");
         }
     } 
+
+    // EFFECTS: saves the favMap to file
+    private void saveFavMap() {
+        try {
+            jsonWriter.open();
+            jsonWriter.write(favoriteListsMap);
+            jsonWriter.close();
+            System.out.println("Saved all lists to " + JSON_STORE);
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to file: " + JSON_STORE);
+        }
+    }
+
+    // MODIFIES: this
+    // EFFECTS: loads favMap from file
+    private void loadFavMap() {
+        try {
+            favoriteListsMap = jsonReader.read();
+            System.out.println("Loaded all lists from " + JSON_STORE);
+        } catch (IOException e) {
+            System.out.println("Unable to read from file: " + JSON_STORE);
+        }
+    }
 }
