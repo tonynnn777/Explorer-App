@@ -34,7 +34,7 @@ public class JsonWriter {
         saveToFile(json.toString(TAB));
     }
 
-    // EFFECTS: converts favorite lists to JSON object representation
+    // EFFECTS: converts favorite lists map to JSON object representation
     private JSONObject favoriteListsToJson(HashMap<String, Favorites> favoriteListsMap) {
         JSONObject json = new JSONObject();
         for (Map.Entry<String, Favorites> entry : favoriteListsMap.entrySet()) {
