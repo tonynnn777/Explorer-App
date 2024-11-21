@@ -7,14 +7,17 @@ public class Location {
     private String name;
     private Country country;
     private int rating;
+    private String imagePath;
 
     //REQUIRES: name is not empty or null &&
     //          0 <= rating <= 5
-    //EFFECTS: Construct a location with name, country, and a number rating
-    public Location(String name, Country c, int rating) {
+    //EFFECTS: Construct a location with name, country, a number rating, and image path
+    public Location(String name, Country c, int rating, String imagePath) {
         this.name = name;
         this.country = c;
         this.rating = rating;
+        this.imagePath = imagePath;
+
     }
 
     //EFFECTS: returns location's name
@@ -44,12 +47,24 @@ public class Location {
         rating = newRating;
     }
 
+    //EFFECTS: get image path
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    //MODIFIES: this
+    //EFFECTS: sets image path to imagePath
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
+    }
+
     //EFFECTS: returns location as a JSON object
     public JSONObject locationToJson(Location loc) {
         JSONObject json = new JSONObject();
         json.put("name", loc.getName());
         json.put("country", loc.getCountry().getName());
         json.put("rating", loc.getRating());
+        json.put("imagePath", loc.getImagePath());
         return json;
     }
 }

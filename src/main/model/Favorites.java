@@ -3,6 +3,7 @@ package model;
 import java.util.HashSet;
 
 import org.json.JSONArray;
+import org.json.JSONObject;
 
 // Represents a collection of favorite locations
 public class Favorites {
