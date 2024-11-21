@@ -76,8 +76,9 @@ public class JsonReader {
         String name = jsonObject.getString("name");
         String countryName = jsonObject.getString("country");
         int rating = jsonObject.getInt("rating");
+        String image = jsonObject.getString("imagePath");
 
         Country country = new Country(countryName);
-        return new Location(name, country, rating);
+        return new Location(name, country, rating, image);
     }
 }
