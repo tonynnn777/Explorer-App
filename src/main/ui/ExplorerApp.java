@@ -102,27 +102,27 @@ public class ExplorerApp {
     //EFFECTS: initializes locations 
     private void iniLocations() {
         locationsByCountry.put(COUNTRY_USA, Arrays.asList(
-            new Location("New York City", COUNTRY_USA, 5),
-            new Location("Los Angeles", COUNTRY_USA, 4),
-            new Location("Chicago", COUNTRY_USA, 4)
+            new Location("New York City", COUNTRY_USA, 5, "images/nyc.jpeg"),
+            new Location("Los Angeles", COUNTRY_USA, 4, "images/la.jpeg"),
+            new Location("Chicago", COUNTRY_USA, 4, "images/chicago.jpeg")
         ));
         locationsByCountry.put(COUNTRY_CANADA, Arrays.asList(
-            new Location("Toronto", COUNTRY_CANADA, 5),
-            new Location("Vancouver", COUNTRY_CANADA, 4),
-            new Location("Montreal", COUNTRY_CANADA, 4)
+            new Location("Toronto", COUNTRY_CANADA, 5, "images/toronto.jpeg"),
+            new Location("Vancouver", COUNTRY_CANADA, 4, "images/vancouver.jpeg"),
+            new Location("Montreal", COUNTRY_CANADA, 4, "images/montreal.jpeg")
         ));
         locationsByCountry.put(COUNTRY_FRANCE, Arrays.asList(
-            new Location("Paris", COUNTRY_FRANCE, 5),
-            new Location("Nice", COUNTRY_FRANCE, 4),
-            new Location("Lyon", COUNTRY_FRANCE, 3)
+            new Location("Paris", COUNTRY_FRANCE, 5, "images/paris.jpeg"),
+            new Location("Nice", COUNTRY_FRANCE, 4, "images/nice.jpeg"),
+            new Location("Lyon", COUNTRY_FRANCE, 3, "images/lyon.jpeg")
         ));
         locationsByCountry.put(COUNTRY_AUSTRALIA, Arrays.asList(
-            new Location("Melbourne", COUNTRY_AUSTRALIA, 4),
-            new Location("Brisbane", COUNTRY_AUSTRALIA, 4)
+            new Location("Melbourne", COUNTRY_AUSTRALIA, 4, "images/melbourne.jpeg"),
+            new Location("Brisbane", COUNTRY_AUSTRALIA, 4, "images/brisbane.jpeg")
         ));
         locationsByCountry.put(COUNTRY_THAILAND, Arrays.asList(
-            new Location("Bangkok", COUNTRY_THAILAND, 5),
-            new Location("Phuket", COUNTRY_THAILAND, 3)
+            new Location("Bangkok", COUNTRY_THAILAND, 5, "images/bangkok.jpeg"),
+            new Location("Phuket", COUNTRY_THAILAND, 3, "images/phuket.jpeg")
         ));
     }
 
