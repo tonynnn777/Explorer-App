@@ -54,8 +54,8 @@ public class JsonWriterTest {
             HashMap<String, Favorites> favoriteListsMap = new HashMap<>();
             Country country = new Country("Canada");
             Favorites favorites = new Favorites();
-            favorites.addLocation(new Location("Banff", country, 5));
-            favorites.addLocation(new Location("Toronto", country, 4));
+            favorites.addLocation(new Location("Vancouver", country, 5, "images/vancouver.jpeg"));
+            favorites.addLocation(new Location("Toronto", country, 4, "images/toronto.jpeg"));
             favoriteListsMap.put("Test Fav List One", favorites);
 
             JsonWriter writer = new JsonWriter("./data/testWriterGeneralFavMap.json");

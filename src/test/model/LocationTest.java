@@ -12,7 +12,7 @@ public class LocationTest {
     @BeforeEach
     void setUp() {
         testCountry = new Country("USA");
-        testLocation = new Location("Hawaii", testCountry, 5);
+        testLocation = new Location("Hawaii", testCountry, 5, "images/hawaii.jpeg");
     }
 
     @Test
@@ -34,4 +34,10 @@ public class LocationTest {
         assertEquals((testLocation.getName() + " (Rating: " + testLocation.getRating() + ")"), testLocation.toString());
     }
 
+    @Test
+    void testImagePath() {
+        assertEquals("images/hawaii.jpeg", testLocation.getImagePath());
+        testLocation.setImagePath("images/nyc.jpeg");
+        assertEquals("images/nyc.jpeg", testLocation.getImagePath());
+    }
 }

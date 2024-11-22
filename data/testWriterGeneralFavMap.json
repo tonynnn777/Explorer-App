@@ -1,11 +1,13 @@
 {"Test Fav List One": [
     {
         "country": "Canada",
-        "name": "Banff",
+        "imagePath": "images/vancouver.jpeg",
+        "name": "Vancouver",
         "rating": 5
     },
     {
         "country": "Canada",
+        "imagePath": "images/toronto.jpeg",
         "name": "Toronto",
         "rating": 4
     }

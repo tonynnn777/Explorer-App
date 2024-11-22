@@ -56,6 +56,7 @@ public class JsonReaderTest {
             assertEquals("Toronto", toronto.getName());
             assertEquals("Canada", toronto.getCountry().getName());
             assertEquals(4, toronto.getRating());
+            assertEquals("images/toronto.jpeg", toronto.getImagePath());
 
             Favorites favListTwo = favMap.get("Test Fav List Two");
             assertEquals(2, favListTwo.getFavorites().size());
@@ -65,6 +66,8 @@ public class JsonReaderTest {
             assertEquals("Los Angeles", losAngeles.getName());
             assertEquals("USA", losAngeles.getCountry().getName());
             assertEquals(3, losAngeles.getRating());
+            assertEquals("images/la.jpeg", losAngeles.getImagePath());
+
         } catch (IOException e) {
             fail("Couldn't read from file");
         }

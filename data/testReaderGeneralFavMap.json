@@ -3,24 +3,29 @@
         {
             "name": "Toronto",
             "country": "Canada",
-            "rating": 4
+            "rating": 4,
+            "imagePath": "images/toronto.jpeg"
         },
         {
-            "name": "Banff",
+            "name": "Vancouver",
             "country": "Canada",
-            "rating": 5
+            "rating": 5,
+            "imagePath": "images/vancouver.jpeg",
+
         }
     ],
     "Test Fav List Two": [
         {
             "name": "New York",
             "country": "USA",
-            "rating": 5
+            "rating": 5,
+            "imagePath": "images/nyc.jpeg"
         },
         {
             "name": "Los Angeles",
             "country": "USA",
-            "rating": 3
+            "rating": 3,
+            "imagePath": "images/la.jpeg"
         }
     ]
 }

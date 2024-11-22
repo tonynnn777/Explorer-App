@@ -18,8 +18,8 @@ public class FavoritesTest {
     void setUp() {
         favoriteList = new Favorites();
         testCountry = new Country("USA");
-        location1 = new Location("Hawaii", testCountry, 5);
-        location2 = new Location("New York", testCountry, 4);
+        location1 = new Location("Hawaii", testCountry, 5, "images/hawaii.jpeg");
+        location2 = new Location("New York", testCountry, 4, "images/nyc.jpeg");
     }
 
     @Test
@@ -97,8 +97,6 @@ public class FavoritesTest {
         HashSet<Location> testFavovites = favoriteList.getFavorites();
         assertEquals(2, testFavovites.size());
         assertTrue(testFavovites.contains(location1));
-
     }
-
 }
 
