@@ -33,13 +33,18 @@ END OF PHASE 1
 **PHASE 3: Instruction for End User**
 How to add a location to a favorite list?
 - First create a new list, then one can browse locations by clicking on the browse button at the top. User will choose a country then will be presented with many locations in that country. To add a location to a list, simply right click on that location and choose the list one want to be added to.
+
 How to filter locations by category?
 - User can browse different locations filtered by country by clicking the set country after the browse button.
+
 How to remove a location from a list?
 - User can remove a location from a list by viewing locations in that list and right click on the location to remove it. Simply choose the right list from the drop down option menu and you are done.
+
 How to find the images that was used in this project?
 - One can find all the images that was used in the *images* folder.
+
 How to save the state of the application to file?
 - Simply click the save button on the top to save all your lists.
+
 How to load the state of the application from file?
 - Simply click the load button on the top to load all your data.
