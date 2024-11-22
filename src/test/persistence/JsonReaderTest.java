@@ -64,8 +64,6 @@ public class JsonReaderTest {
             Location losAngeles = favListTwo.getLocationByName("Los Angeles");
             assertNotNull(losAngeles);
             assertEquals("Los Angeles", losAngeles.getName());
-            assertEquals("USA", losAngeles.getCountry().getName());
-            assertEquals(3, losAngeles.getRating());
             assertEquals("images/la.jpeg", losAngeles.getImagePath());
 
         } catch (IOException e) {

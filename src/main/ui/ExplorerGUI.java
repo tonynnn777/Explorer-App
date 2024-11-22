@@ -60,6 +60,7 @@ public class ExplorerGUI extends JFrame {
         setVisible(true);
     }
 
+    //MODIFIES: this, Location
     //EFFECTS: initialize the locations
     private HashSet<Location> initLocations() {
         HashSet<Location> locations = new HashSet<>();
