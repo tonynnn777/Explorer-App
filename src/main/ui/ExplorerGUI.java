@@ -21,7 +21,7 @@ public class ExplorerGUI extends JFrame {
     private static final String MENU_PANEL = "Menu Panel";
     private static final String COUNTRY_PANEL = "Country Panel";
     private static final String BROWSE_PANEL = "Browse Panel";
-    private List<Location> allLocations;
+    private HashSet<Location> allLocations;
     private Country selectedCountry;
     private HashMap<String, Favorites> favoritesMap;
 
@@ -29,12 +29,18 @@ public class ExplorerGUI extends JFrame {
     private JsonWriter jsonWriter;
     private JsonReader jsonReader;
 
+    private static final Country COUNTRY_USA = new Country("USA");
+    private static final Country COUNTRY_CANADA = new Country("Canada");
+    private static final Country COUNTRY_FRANCE = new Country("France");
+    private static final Country COUNTRY_AUSTRALIA = new Country("Australia");
+    private static final Country COUNTRY_THAILAND = new Country("Thailand");
+
     //EFFECTS: runs the ExplorerGUI
-    public ExplorerGUI(List<Location> locations) {
+    public ExplorerGUI() {
         jsonWriter = new JsonWriter(JSON_STORE);
         jsonReader = new JsonReader(JSON_STORE);
 
-        allLocations = locations;
+        allLocations = initLocations();
         favoritesMap = new HashMap<>();
         setTitle("Explorer App");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -52,6 +58,26 @@ public class ExplorerGUI extends JFrame {
         mainPanel.add(createBrowsePanel(new ArrayList<>()), BROWSE_PANEL); // Empty initially
 
         setVisible(true);
+    }
+
+    //EFFECTS: initialize the locations
+    private HashSet<Location> initLocations() {
+        HashSet<Location> locations = new HashSet<>();
+        
+        locations.add(new Location("Bangkok", COUNTRY_THAILAND, 5, "images/bangkok.jpeg"));
+        locations.add(new Location("Phuket", COUNTRY_THAILAND, 3, "images/phuket.jpeg"));
+        locations.add(new Location("Melbourne", COUNTRY_AUSTRALIA, 4, "images/melbourne.jpeg"));
+        locations.add(new Location("Brisbane", COUNTRY_AUSTRALIA, 4, "images/brisbane.jpeg"));
+        locations.add(new Location("Paris", COUNTRY_FRANCE, 5, "images/paris.jpeg"));
+        locations.add(new Location("Nice", COUNTRY_FRANCE, 4, "images/nice.jpeg"));
+        locations.add(new Location("Lyon", COUNTRY_FRANCE, 3, "images/lyon.jpeg"));
+        locations.add(new Location("Toronto", COUNTRY_CANADA, 4, "images/toronto.jpeg"));
+        locations.add(new Location("Vancouver", COUNTRY_CANADA, 4, "images/vancouver.jpeg"));
+        locations.add(new Location("Montreal", COUNTRY_CANADA, 4, "images/montreal.jpeg"));
+        locations.add(new Location("New York City", COUNTRY_USA, 5, "images/nyc.jpeg"));
+        locations.add(new Location("Los Angeles", COUNTRY_USA, 4, "images/la.jpeg"));
+        locations.add(new Location("Chicago", COUNTRY_USA, 4, "images/chicago.jpeg"));
+        return locations;
     }
 
     //MODIFIES: this
@@ -390,18 +416,5 @@ public class ExplorerGUI extends JFrame {
             JOptionPane.showMessageDialog(this, "Unable to load favorites from " + JSON_STORE,
                              "Error", JOptionPane.ERROR_MESSAGE);
         }
-    }
-
-    public static void main(String[] args) {
-        Country usa = new Country("USA");
-        Country canada = new Country("Canada");
-
-        Location nyc = new Location("New York City", usa, 5, "images/nyc.jpeg");
-        Location la = new Location("Los Angeles", usa, 4, "images/la.jpeg");
-        Location chicago = new Location("Chicago", usa, 4, "images/chicago.jpeg");
-        Location toronto = new Location("Toronto", canada, 4, "images/toronto.jpeg");
-
-        List<Location> locations = List.of(nyc, la, chicago, toronto);
-        new ExplorerGUI(locations);
     }
 }
