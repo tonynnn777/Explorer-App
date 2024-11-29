@@ -13,6 +13,7 @@ import java.util.Map;
 import java.util.Scanner;
 
 import model.Country;
+import model.EventLog;
 import model.Favorites;
 import model.Location;
 import persistence.JsonReader;
@@ -58,6 +59,7 @@ public class ExplorerApp {
             command = command.toLowerCase();
 
             if (command.equals("q")) {
+                printLogsOnExit();
                 keepGoing = false;
             } else {
                 processCommand(command);
@@ -65,6 +67,14 @@ public class ExplorerApp {
             
         }
         System.out.println("\nGoodbye!");
+    }
+
+    //EFFECTS: prints all logged events to the console
+    private void printLogsOnExit() {
+        EventLog eventLog = EventLog.getInstance();
+        for (model.Event e : eventLog) {
+            System.out.println(e.toString());
+        }
     }
 
     //MODIFIES: this

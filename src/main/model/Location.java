@@ -17,7 +17,6 @@ public class Location {
         this.country = c;
         this.rating = rating;
         this.imagePath = imagePath;
-
     }
 
     //EFFECTS: returns location's name
@@ -45,6 +44,7 @@ public class Location {
     //EFFECTS: sets the new rating of location to newRating
     public void setRating(int newRating) {
         rating = newRating;
+        EventLog.getInstance().logEvent(new Event("Updated rating for location: " + name + " to " + newRating));
     }
 
     //EFFECTS: get image path
@@ -56,6 +56,7 @@ public class Location {
     //EFFECTS: sets image path to imagePath
     public void setImagePath(String imagePath) {
         this.imagePath = imagePath;
+        EventLog.getInstance().logEvent(new Event("Updated image path for location: " + name));
     }
 
     //EFFECTS: returns location as a JSON object

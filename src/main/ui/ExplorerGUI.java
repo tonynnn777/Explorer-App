@@ -3,6 +3,7 @@ package ui;
 import javax.swing.*;
 
 import model.Country;
+import model.EventLog;
 import model.Favorites;
 import model.Location;
 import persistence.JsonReader;
@@ -12,8 +13,11 @@ import java.awt.*;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.*;
-import java.util.List;
 import java.util.stream.Collectors;
+
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
 
 public class ExplorerGUI extends JFrame {
     private JPanel mainPanel;
@@ -57,7 +61,22 @@ public class ExplorerGUI extends JFrame {
         mainPanel.add(createCountryPanel(), COUNTRY_PANEL);
         mainPanel.add(createBrowsePanel(new ArrayList<>()), BROWSE_PANEL); // Empty initially
 
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                printLogsOnExit();
+                System.exit(0);
+            }
+        });
         setVisible(true);
+    }
+
+    //EFFECTS: prints all logged events to the console
+    private void printLogsOnExit() {
+        EventLog eventLog = EventLog.getInstance();
+        for (model.Event e : eventLog) {
+            System.out.println(e.toString());
+        }
     }
 
     //MODIFIES: this, Location
@@ -107,7 +126,10 @@ public class ExplorerGUI extends JFrame {
         menuPanel.add(loadButton);
 
         JButton exitButton = new JButton("Exit");
-        exitButton.addActionListener(e -> System.exit(0));
+        exitButton.addActionListener(e -> {
+            printLogsOnExit(); 
+            System.exit(0);
+        });
         menuPanel.add(exitButton);
 
         return menuPanel;
@@ -211,7 +233,7 @@ public class ExplorerGUI extends JFrame {
 
     //MODIFIES: this
     //EFFECTS: shows the browsing panel showing the locations
-    private JPanel createBrowsePanel(List<Location> locations) {
+    private JPanel createBrowsePanel(java.util.List<Location> locations) {
         JPanel browsePanel = new JPanel(new BorderLayout());
 
         JLabel titleLabel = new JLabel("Browse Locations", SwingConstants.CENTER);
@@ -338,7 +360,7 @@ public class ExplorerGUI extends JFrame {
     //MODIFIES: this
     //EFFECTS: updates the browse panel to display only locations for the selected country
     private void updateBrowsePanel() {
-        List<Location> filteredLocations = allLocations.stream()
+        java.util.List<Location> filteredLocations = allLocations.stream()
                 .filter(loc -> loc.getCountry().equals(selectedCountry))
                 .collect(Collectors.toList());
 

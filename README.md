@@ -31,6 +31,7 @@ END OF PHASE 1
 - As a user, I want to be able to reload my save favorite locations list as an option in the application menu.
 
 **PHASE 3: Instruction for End User**
+
 How to add a location to a favorite list?
 - First create a new list, then one can browse locations by clicking on the browse button at the top. User will choose a country then will be presented with many locations in that country. To add a location to a list, simply right click on that location and choose the list one want to be added to.
 
@@ -48,3 +49,21 @@ How to save the state of the application to file?
 
 How to load the state of the application from file?
 - Simply click the load button on the top to load all your data.
+
+**Phase 4: Task 2**
+Fri Nov 29 02:06:23 PST 2024
+Added location to favorites: New York City
+Fri Nov 29 02:06:28 PST 2024
+Added location to favorites: Chicago
+Fri Nov 29 02:06:31 PST 2024
+Added location to favorites: Los Angeles
+Fri Nov 29 02:06:37 PST 2024
+Added location to favorites: Phuket
+Fri Nov 29 02:06:40 PST 2024
+Added location to favorites: Bangkok
+Fri Nov 29 02:06:46 PST 2024
+Added location to favorites: Lyon
+Fri Nov 29 02:06:54 PST 2024
+Removed location from favorites: Los Angeles
+Fri Nov 29 02:07:02 PST 2024
+Removed location from favorites: Bangkok

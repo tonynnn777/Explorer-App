@@ -19,6 +19,7 @@ public class Favorites {
     public void addLocation(Location loc) {
         if (!contains(loc)) {
             favoriteLocations.add(loc);
+            EventLog.getInstance().logEvent(new Event("Added location to favorites: " + loc.getName()));
         }
     }
 
@@ -27,6 +28,7 @@ public class Favorites {
     //EFFECTS: removes loc location to the list if already in the list
     public void removeLocation(Location loc) {
         favoriteLocations.remove(loc);
+        EventLog.getInstance().logEvent(new Event("Removed location from favorites: " + loc.getName()));
     }
 
     //EFFECTS: returns current list of favorite locations
@@ -67,7 +69,6 @@ public class Favorites {
         for (Location loc : this.getFavorites()) {
             jsonArray.put(loc.locationToJson(loc));
         }
-
         return jsonArray;
     }
 }
