@@ -50,25 +50,42 @@ How to save the state of the application to file?
 How to load the state of the application from file?
 - Simply click the load button on the top to load all your data.
 
-**Phase 4: Task 2**
+**PHASE 4: Task 2**
+
 Fri Nov 29 02:06:23 PST 2024
+
 Added location to favorites: New York City
+
 Fri Nov 29 02:06:28 PST 2024
+
 Added location to favorites: Chicago
+
 Fri Nov 29 02:06:31 PST 2024
+
 Added location to favorites: Los Angeles
+
 Fri Nov 29 02:06:37 PST 2024
+
 Added location to favorites: Phuket
+
 Fri Nov 29 02:06:40 PST 2024
+
 Added location to favorites: Bangkok
+
 Fri Nov 29 02:06:46 PST 2024
+
 Added location to favorites: Lyon
+
 Fri Nov 29 02:06:54 PST 2024
+
 Removed location from favorites: Los Angeles
+
 Fri Nov 29 02:07:02 PST 2024
+
 Removed location from favorites: Bangkok
 
-**Phase 4: Task 3**
+**PHASE 4: Task 3**
+
 If I had more time, I would refactor the design to use interfaces for key classes like Location and Favorites. This would decouple the implementations from the rest of the system, allowing for more flexibility in the future. For example, an interface for Location could support different types of locations, while an interface for Favorites could allow for different ways to store favorites (e.g., ordered or filtered). This would make the system more modular, easier to extend, and easier to maintain in the long run.
 
 Another potential refactoring would be to better separate the responsibilities of data management and UI interaction. Currently, the ExplorerGUI class handles both UI logic and some application logic, such as filtering locations by country. To improve this, I would move the location filtering and other core logic into a dedicated service or controller class. This would allow the ExplorerGUI to focus solely on presentation, while the application logic could be more easily tested, modified, and maintained.
